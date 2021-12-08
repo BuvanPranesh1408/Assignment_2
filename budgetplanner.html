@@ -5,7 +5,6 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Team Budget Planner App</title>
-        <!--<link rel="stylesheet" href="style.css">-->
         <style>
         .budget{
             background-image: url('budget.jpg');
@@ -18,38 +17,35 @@
             margin: 1px;
           }
           </style>
-      
     </head>
     <body>
         <div class="budget">
             <h1><strong>Team Budget Planner</strong> </h1>
-        <form>
-            <input type="button" value="Add Product Details"onclick="addDetails()"><br><br><br>
-            <input type="button" value="Check Product Details"onclick="checkDetails()"><br>
-        </form>
-    </div>
+            <form>
+                <input type="button" value="Add Product Details"onclick="addProductDetails()"><br><br><br>
+                <input type="button" value="Check Product Details"onclick="checkProductBudget()"><br>
+            </form>
+        </div>
       
         <script>
-            var dict={}
-            function addDetails() {
-                var product=prompt("Enter the Product Name : ")
-                var price=prompt("Enter the Price of "+product+" : ")
-                dict[product]=price 
-            }
-    function checkDetails() {
-        var val=Object.values(dict)
-        var totalBudget=0
-        for (let i=0;i<val.length;i++) {
-            var num=parseFloat(val[i])
-            totalBudget+=num
+        var dict={}
+        function addProductDetails() {
+            var product=prompt("Enter the Product Name : ");
+            var price=prompt("Enter the Price of "+product+" : ");
+            dict[product]=price; 
         }
-/*         document.write("Total Budget is : "+totalBudget+" Rs")
- */        var t =document.getElementById('total');
+        function checkProductBudget() {
+            var val=Object.values(dict);
+            var totalBudget=0;
+            for (let i=0;i<val.length;i++) {
+                var num=parseFloat(val[i]);
+                totalBudget+=num;
+        }
+        var t =document.getElementById('total_budget');
         t.innerHTML = "Total Budget is : "+totalBudget+" Rs";
     }
     </script>
-  
-    <h3 id="total"> </h3>
+    <h3 id="total_budget"> </h3>
 </body>
 </html>
 
