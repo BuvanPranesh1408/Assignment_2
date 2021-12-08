@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Team Budget Planner App</title>
+        <!--<link rel="stylesheet" href="style.css">-->
+        <style>
+        .budget{
+            background-image: url('budget.jpg');
+            background-size: cover;
+            background-color: seashell;
+            width: 300px;
+            height: 215px;
+            border: 5px solid;
+            padding: 20px;
+            margin: 1px;
+          }
+          </style>
+      
+    </head>
+    <body>
+        <div class="budget">
+            <h1><strong>Team Budget Planner</strong> </h1>
+        <form>
+            <input type="button" value="Add Product Details"onclick="addDetails()"><br><br><br>
+            <input type="button" value="Check Product Details"onclick="checkDetails()"><br>
+        </form>
+    </div>
+      
+        <script>
+            var dict={}
+            function addDetails() {
+                var product=prompt("Enter the Product Name : ")
+                var price=prompt("Enter the Price of "+product+" : ")
+                dict[product]=price 
+            }
+    function checkDetails() {
+        var val=Object.values(dict)
+        var totalBudget=0
+        for (let i=0;i<val.length;i++) {
+            var num=parseFloat(val[i])
+            totalBudget+=num
+        }
+/*         document.write("Total Budget is : "+totalBudget+" Rs")
+ */        var t =document.getElementById('total');
+        t.innerHTML = "Total Budget is : "+totalBudget+" Rs";
+    }
+    </script>
+  
+    <h3 id="total"> </h3>
+</body>
+</html>
+
+
